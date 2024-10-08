@@ -12,7 +12,7 @@ public class FileDownloader{
     var groups:[FileDownloadGroup] = []
     var queues:[FileDownloadQueue] = []
     var downloadMap:[String:FileDownload] = [:]
-    var enableLog:Bool = false
+    public var enableLog:Bool = false
 }
 
 extension FileDownloader{
