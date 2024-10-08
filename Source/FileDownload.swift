@@ -73,7 +73,7 @@ class FileDownload: NSObject {
     
     private var destination:DownloadRequest.Destination{
         let fileName = fileInfo.fileName
-        let fileURL = fileInfo.folderConfig.distinctFolderURL.appending(path: fileName)
+        let fileURL = fileInfo.folderConfig.distinctFolderURL.appendingPathComponent(fileName)
         let destination: DownloadRequest.Destination = { _, _ in
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
@@ -199,7 +199,7 @@ class FileDownload: NSObject {
     private func copyFileIfNeeded(filePath:String,callback:FileDownloadCallback) throws {
         let orginURL = URL(string: filePath)!
         let fileName = callback.fileInfo.fileName
-        let fileURL = callback.fileInfo.folderConfig.distinctFolderURL.appending(path: fileName)
+        let fileURL = callback.fileInfo.folderConfig.distinctFolderURL.appendingPathComponent(fileName)
         if(orginURL != fileURL){
             do{
                 if(FileManager.default.fileExists(atPath: fileURL.path)){

@@ -19,7 +19,7 @@ public struct FileDownloadFolderConfiguration{
     
     var distinctFolderURL:URL{
         get{
-            return rootFolderURL.appending(path: distinctFolderName)
+            return rootFolderURL.appendingPathComponent(distinctFolderName)
         }
     }
     

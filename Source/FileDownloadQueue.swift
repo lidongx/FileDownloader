@@ -37,7 +37,6 @@ public class FileDownloadQueue{
     
     var index:Int = 0
     
-    @Published
     public var progress:Double = 0
     
     @discardableResult

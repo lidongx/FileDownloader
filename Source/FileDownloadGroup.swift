@@ -27,7 +27,6 @@ public class FileDownloadGroup{
 
     public var state:FileDownloadState = .none
     
-    @Published
     public var progress:Double = 0
     
     @discardableResult

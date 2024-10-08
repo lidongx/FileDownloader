@@ -35,7 +35,7 @@ public class FileDownloadInfo{
     }
     
     public var filePath:String{
-        let fileURL = folderConfig.distinctFolderURL.appending(path: fileName)
+        let fileURL = folderConfig.distinctFolderURL.appendingPathComponent(fileName)
         return fileURL.path
     }
 }
