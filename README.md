@@ -66,7 +66,7 @@ FileDownloader基于Alamofire的封装,只负责处理文件的下载,支持grou
           "https://raw.githubusercontent.com/lidongx/resource/refs/heads/main/back_lunges_with_knee_ups_left_2.mp3".fileInfo()
     ].startDownload(delegate: .init(onFinished: { group, fileInfos in
             
-    }, onFailed: { group, errorString in
+    }, onFailed: { group, error, fileInfo in
             
     }, onProgress: { group, progress in
             

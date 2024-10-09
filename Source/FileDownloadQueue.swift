@@ -13,11 +13,11 @@ import Foundation
 //
 public class FileDownloadQueueDelegate {
     public var onFinished: ((FileDownloadQueue, [FileDownloadInfo]) -> Void)
-    public var onFailed: ((FileDownloadQueue, String) -> Void)
+    public var onFailed: ((FileDownloadQueue, String, FileDownloadInfo) -> Void)
     public var onProgress: ((FileDownloadQueue, Double) -> Void)
     public init(
         onFinished: @escaping (FileDownloadQueue, [FileDownloadInfo]) -> Void,
-        onFailed: @escaping (FileDownloadQueue, String) -> Void,
+        onFailed: @escaping (FileDownloadQueue, String, FileDownloadInfo) -> Void,
         onProgress: @escaping (FileDownloadQueue, Double) -> Void) {
         self.onFinished = onFinished
         self.onFailed = onFailed
@@ -111,12 +111,12 @@ extension FileDownloadQueue {
             } else {
                 self.next()
             }
-        } onDownloadFailed: { [weak self] (_, errorDescription) in
+        } onDownloadFailed: { [weak self] (download, errorDescription) in
             guard let self = self else {
                 return
             }
             state = .failed
-            self.delegate?.onFailed(self, errorDescription)
+            self.delegate?.onFailed(self, errorDescription, download.fileInfo)
             FileDownloader.shared.remove(queue: self)
         } onDownloadProgress: { [weak self] (_, _) in
             guard let self = self else {
