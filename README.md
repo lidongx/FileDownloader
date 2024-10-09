@@ -99,6 +99,14 @@ FileDownloader基于Alamofire的封装,只负责处理文件的下载,支持grou
     queue.resume()
     queue.cancel()
    ```
-
+   
+10. 配置（下载失败Retry的次数,超时时间,以及请求的缓存策略）
+    ```swift
+    queue = FileDownloadQueue(urlStrings: [
+            "https://raw.githubusercontent.com/lidongx/resource/refs/heads/main/222.mp4",
+            "http://127.0.0.1:8000/back_lunges_with_knee_ups_left_2.mp3"
+    ],config: .init(maxRetries: 0, timeoutIntervalForRequest: 30, requestCachePolicy: .reloadIgnoringLocalAndRemoteCacheData))
+    queue.startDownload()
+   ```
  
     
