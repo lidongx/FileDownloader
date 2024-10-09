@@ -39,6 +39,11 @@ public extension Array where Element == String {
         let urls = FileDownloaderUtils.stringsToURLs(urlStrings: self)
         urls.startDownload(folderConfig: folderConfig, delegate: delegate)
     }
+    func startQueueDownload(
+        folderConfig: FileDownloadFolderConfiguration = .init(), delegate: FileDownloadQueueDelegate? = nil) {
+        let urls = FileDownloaderUtils.stringsToURLs(urlStrings: self)
+        urls.startQueueDownload(folderConfig: folderConfig, delegate: delegate)
+    }
 }
 public extension Array where Element == URL {
     func startDownload(folderConfig: FileDownloadFolderConfiguration = .init(),

@@ -29,7 +29,6 @@ public class FileDownloadQueue {
     private var delegate: FileDownloadQueueDelegate?
     private var downloadItems: [FileDownloadItem] = []
     public var state: FileDownloadState = .none
-    var index: Int = 0
     public var progress: Double = 0
     @discardableResult
     public convenience init(
