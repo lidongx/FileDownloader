@@ -1,6 +1,6 @@
 # FileDownloader
 
-FileDownloader依赖于Alamofire的简单实用封装,只负责处理文件的下载,支持group和queue下载，默认group下载 不支持同一个URL犹在暂停下载又在继续下载
+FileDownloader基于Alamofire的封装,只负责处理文件的下载,支持group和queue下载，默认group下载 不支持同一个URL犹在暂停下载又在继续下载
 
 ## 使用
 
@@ -61,16 +61,16 @@ FileDownloader依赖于Alamofire的简单实用封装,只负责处理文件的�
 7. 设置回调代理
 
    ```swift
-      [
+    [
          "http://127.0.0.1:8000/back_lunges_with_knee_ups_left_2.mp3".savedFileName("mm.mp3").folderName("FolderName"),
           "https://raw.githubusercontent.com/lidongx/resource/refs/heads/main/back_lunges_with_knee_ups_left_2.mp3".fileInfo()
-      ].startDownload(delegate: .init(onFinished: { group, fileInfos in
+    ].startDownload(delegate: .init(onFinished: { group, fileInfos in
             
-      }, onFailed: { group, errorString in
+    }, onFailed: { group, errorString in
             
-      }, onProgress: { group, progress in
+    }, onProgress: { group, progress in
             
-      }))
+    }))
     ```
 
 8. 取消所有的下载
@@ -81,22 +81,23 @@ FileDownloader依赖于Alamofire的简单实用封装,只负责处理文件的�
 
 9. queue和group的取消暂停和恢复下载
 
-  ```swift
+    ```swift
   	let group = FileDownloadGroup(urlStrings: [
             "http://127.0.0.1:8000/back_lunges_with_knee_ups_left_2.mp3"
-        ], folderConfig: .init(), config: .defaultConfiguration, delegate: nil)
-        group.startDownload()
-        group.pause()
-        group.resume()
-        group.cancel()
+    ], folderConfig: .init(), config: .defaultConfiguration, delegate: nil)
+    
+    group.startDownload()
+    group.pause()
+    group.resume()
+    group.cancel()
      
-        let queue = FileDownloadQueue(urlStrings: [
-            "http://127.0.0.1:8000/back_lunges_with_knee_ups_left_2.mp3"
-        ])
-        queue.startDownload()
-        queue.pause()
-        queue.resume()
-        queue.cancel()
+    let queue = FileDownloadQueue(urlStrings: [
+        "http://127.0.0.1:8000/back_lunges_with_knee_ups_left_2.mp3"
+    ])
+    queue.startDownload()
+    queue.pause()
+    queue.resume()
+    queue.cancel()
    ```
 
  
