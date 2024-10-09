@@ -32,13 +32,10 @@ let package = Package(
         .target(
             name: "FileDownloader",
             dependencies: [
-                "Alamofire"
+                "Alamofire",
             ],
             path: "Source",
-            resources: [],
-            plugins: [
-                .plugin(name: "SwiftLint", package: "SwiftLintPlugin")
-            ]
+            resources: []
         )
     ],
     

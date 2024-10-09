@@ -7,13 +7,11 @@
 
 import Foundation
 
-class FileDownloadItem{
-    var fileDownload:FileDownload
-    var callback:FileDownloadCallback
-    
+class FileDownloadItem {
+    var fileDownload: FileDownload
+    var callback: FileDownloadCallback
     init(fileDownload: FileDownload, callback: FileDownloadCallback) {
         self.fileDownload = fileDownload
         self.callback = callback
     }
-    
 }

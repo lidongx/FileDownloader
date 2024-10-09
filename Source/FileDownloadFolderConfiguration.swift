@@ -7,37 +7,29 @@
 
 import Foundation
 
-public struct FileDownloadFolderConfiguration{
-    var rootFolderURL:URL = FileDownloaderUtils.documentURL
+public struct FileDownloadFolderConfiguration {
+    var rootFolderURL: URL = FileDownloaderUtils.documentURL
     public var isChanged = false
-    
     public var distinctFolderName = "FileDownloader" {
-        didSet{
+        didSet {
             didDistinctFolderNameChanged()
         }
     }
-    
-    var distinctFolderURL:URL{
-        get{
-            return rootFolderURL.appendingPathComponent(distinctFolderName)
-        }
+    var distinctFolderURL: URL {
+        return rootFolderURL.appendingPathComponent(distinctFolderName)
     }
-    
-    public init(){
-        //创建文件夹
+    public init() {
+        // 创建文件夹
         FileDownloaderUtils.createFolder(distinctFolderName)
     }
-
-    public init(distinctFolderName:String){
+    public init(distinctFolderName: String) {
         self.distinctFolderName = distinctFolderName
         didDistinctFolderNameChanged()
     }
-    
-    private mutating func didDistinctFolderNameChanged(){
-        if(distinctFolderName != "FileDownloader"){
+    private mutating func didDistinctFolderNameChanged() {
+        if distinctFolderName != "FileDownloader" {
             self.isChanged = true
         }
         FileDownloaderUtils.createFolder(distinctFolderName)
     }
-    
 }
