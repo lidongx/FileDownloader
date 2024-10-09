@@ -12,7 +12,7 @@ public class FileDownloadGroupDelegate {
     public var onFailed: ((FileDownloadGroup, String) -> Void)
     public var onProgress: ((FileDownloadGroup, Double) -> Void)
 
-    init(onFinished: @escaping (FileDownloadGroup,[FileDownloadInfo]) -> Void,
+    public init(onFinished: @escaping (FileDownloadGroup,[FileDownloadInfo]) -> Void,
          onFailed: @escaping (FileDownloadGroup, String) -> Void,
          onProgress: @escaping (FileDownloadGroup, Double) -> Void) {
         self.onFinished = onFinished

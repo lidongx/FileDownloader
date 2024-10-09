@@ -20,7 +20,7 @@ public class FileDownloadQueueDelegate {
     public var onFailed: ((FileDownloadQueue, String) -> Void)
     public var onProgress: ((FileDownloadQueue, Double) -> Void)
 
-    init(onFinished: @escaping (FileDownloadQueue,[FileDownloadInfo]) -> Void,
+    public init(onFinished: @escaping (FileDownloadQueue,[FileDownloadInfo]) -> Void,
          onFailed: @escaping (FileDownloadQueue, String) -> Void,
          onProgress: @escaping (FileDownloadQueue, Double) -> Void) {
         self.onFinished = onFinished
