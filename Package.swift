@@ -35,7 +35,10 @@ let package = Package(
                 "Alamofire"
             ],
             path: "Source",
-            resources: []
+            resources: [],
+            plugins: [
+                .plugin(name: "SwiftLint", package: "SwiftLintPlugin")
+            ]
         )
     ],
     
