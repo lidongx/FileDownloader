@@ -77,20 +77,19 @@ FileDownloader依赖于Alamofire的简单实用封装,只负责处理文件的�
 
     ```swift
     FileDownloader.shared.cancelAll()
-
    ```
 
 9. queue和group的取消暂停和恢复下载
 
   ```swift
-  		let group = FileDownloadGroup(urlStrings: [
+  	let group = FileDownloadGroup(urlStrings: [
             "http://127.0.0.1:8000/back_lunges_with_knee_ups_left_2.mp3"
         ], folderConfig: .init(), config: .defaultConfiguration, delegate: nil)
         group.startDownload()
         group.pause()
         group.resume()
         group.cancel()
-        
+     
         let queue = FileDownloadQueue(urlStrings: [
             "http://127.0.0.1:8000/back_lunges_with_knee_ups_left_2.mp3"
         ])
