@@ -1,6 +1,6 @@
 # FileDownloader
 
-FileDownloader基于Alamofire的封装,只负责处理文件的下载,支持group和queue下载，默认group下载 ,不支持相同的URL在不同的组和队列中一个正在暂停在一个在继续下载
+FileDownloader基于Alamofire的封装,只负责处理文件的下载,支持group和queue下载，默认group下载 ,不支持相同的URL在不同的组和队列中一个正在暂停一个在继续下载
 
 ## 使用
 
