@@ -120,7 +120,7 @@ extension FileDownloadGroup {
         if downloadItems.count == 0 {
             return false
         }
-        for downloadItem in self.downloadItems where downloadItem.fileDownload.progress < 1 {
+        for downloadItem in self.downloadItems where downloadItem.fileDownload.state != .finished {
             return false
         }
         return true
