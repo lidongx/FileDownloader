@@ -2,6 +2,10 @@
 
 FileDownloader基于Alamofire的封装,只负责处理文件的下载,支持group和queue下载，默认group下载 ,不支持相同的URL在不同的组和队列中一个正在暂停一个在继续下载
 
+## 环境
+  - Xcode16
+  - Swift6.0
+
 ## 使用
 
 1. 通过Swift Package Manager在Package.swif添加依赖
@@ -108,5 +112,4 @@ FileDownloader基于Alamofire的封装,只负责处理文件的下载,支持grou
     ],config: .init(maxRetries: 0, timeoutIntervalForRequest: 30, requestCachePolicy: .reloadIgnoringLocalAndRemoteCacheData))
     queue.startDownload()
    ```
- 
-    
+   
