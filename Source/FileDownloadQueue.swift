@@ -130,7 +130,7 @@ extension FileDownloadQueue {
         if downloadItems.count == 0 {
             return false
         }
-        for downloadItem in self.downloadItems where downloadItem.fileDownload.progress < 1 {
+        for downloadItem in self.downloadItems where downloadItem.fileDownload.state != .finished {
             return false
         }
         return true
@@ -150,7 +150,7 @@ extension FileDownloadQueue {
         if !isValid {
             return
         }
-        for downloadItem in self.downloadItems where downloadItem.fileDownload.progress < 1 {
+        for downloadItem in self.downloadItems where downloadItem.fileDownload.state != .finished {
             state = .downloading
             downloadItem.fileDownload.start()
             break
