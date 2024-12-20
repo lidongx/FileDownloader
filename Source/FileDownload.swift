@@ -35,7 +35,7 @@ class FileDownload: NSObject {
     private var downloadRequest: DownloadRequest?
     private var callbacks: [FileDownloadCallback] = []
     var progress: Double = 0
-    private var state: FileDownloadState = .none
+    private(set) var state: FileDownloadState = .none
     private var timer: Timer?
     public var isValid: Bool {
         return FileDownloader.shared.fileDownloadExists(fileDownload: self)
@@ -149,10 +149,12 @@ class FileDownload: NSObject {
                 DispatchQueue.main.async {
                     switch response.result {
                     case .success:
+                        self.state = .finished
                         if let filePath = response.fileURL?.absoluteString {
                             self.handleFinished(filePath: filePath)
                         }
                     case .failure(let error):
+                        self.state = .failed
                         self.handerException(error: error)
                     }
                 }
